@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Website Pengumpulan Tugas</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f9;
+        margin: 0;
+      }
+
+      .container {
+        width: 700px;
+        margin: 30px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+      }
+
+      button {
+        padding: 12px 20px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>📚 Website Pengumpulan Tugas</h1>
+
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label>Nama</label>
+
+        <input type="text" name="nama" required />
+
+        <label>NIM</label>
+
+        <input type="text" name="nim" required />
+
+        <h3>Upload Tugas</h3>
+
+        <div id="daftar-tugas"></div>
+
+        <br />
+
+        <button type="submit">Kirim Tugas</button>
+      </form>
+    </div>
+
+    <script>
+      let daftar = document.getElementById("daftar-tugas");
+
+      for (let i = 1; i <= 16; i++) {
+        daftar.innerHTML += `
+
+<label>Tugas ${i}</label>
+
+<input type="file"
+
+name="tugas${i}"
+
+accept=".pdf">
+
+`;
+      }
+    </script>
+  </body>
+</html>
