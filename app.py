@@ -1,43 +1,42 @@
-from flask import Flask, render_template, request
-import os
+# ====================================
+# PROGRAM PERULANGAN PYTHON
+# ====================================
 
-app = Flask(__name__)
+# 1. PERULANGAN FOR
+print("=== PERULANGAN FOR ===")
 
-UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+for i in range(1, 6):
+    print("Perulangan ke-", i)
 
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+# 2. PERULANGAN WHILE
+print("\n=== PERULANGAN WHILE ===")
 
-@app.route('/upload', methods=['POST'])
-def upload():
+i = 1
 
-    nama = request.form['nama']
-    nim = request.form['nim']
+while i <= 5:
+    print("Perulangan ke-", i)
+    i += 1
 
-    for i in range(1,17):
 
-        file = request.files.get(f'tugas{i}')
+# 3. PERULANGAN DO-WHILE
+print("\n=== PERULANGAN DO-WHILE ===")
 
-        if file and file.filename != '':
+i = 1
 
-            nama_file = f"{nim}_{nama}_tugas{i}.pdf"
+while True:
+    print("Perulangan ke-", i)
+    i += 1
 
-            file.save(
-                os.path.join(
-                    app.config['UPLOAD_FOLDER'],
-                    nama_file
-                )
-            )
+    if i > 5:
+        break
 
-    return '''
-    <h2>Tugas berhasil disimpan</h2>
-    <a href="/">Kembali</a>
-    '''
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# 4. PERULANGAN BERSARANG (NESTED LOOP)
+print("\n=== PERULANGAN BERSARANG (NESTED LOOP) ===")
+
+for baris in range(1, 6):
+    for kolom in range(1, 6):
+        print("*", end=" ")
+
+    print()
