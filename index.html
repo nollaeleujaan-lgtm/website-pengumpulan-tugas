@@ -1,0 +1,175 @@
+<!doctype html>
+
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Website Pengumpulan Tugas</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+
+        background: #f1f4f8;
+
+        margin: 0;
+      }
+
+      header {
+        background: #1e4d92;
+
+        color: white;
+
+        padding: 20px;
+
+        text-align: center;
+      }
+
+      .container {
+        width: 80%;
+
+        max-width: 800px;
+
+        margin: 30px auto;
+
+        background: white;
+
+        padding: 25px;
+
+        border-radius: 10px;
+
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      label {
+        display: block;
+
+        margin-top: 15px;
+
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+
+        padding: 10px;
+
+        margin-top: 5px;
+
+        border: 1px solid #ccc;
+
+        border-radius: 6px;
+      }
+
+      .tugas {
+        margin-top: 15px;
+
+        padding: 15px;
+
+        border: 1px solid #ddd;
+
+        border-radius: 8px;
+      }
+
+      button {
+        width: 100%;
+
+        padding: 15px;
+
+        margin-top: 25px;
+
+        background: #1e4d92;
+
+        color: white;
+
+        border: none;
+
+        border-radius: 8px;
+
+        font-size: 18px;
+
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #163b6d;
+      }
+
+      .pesan {
+        margin-top: 20px;
+
+        text-align: center;
+
+        font-weight: bold;
+
+        color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>📚 Website Pengumpulan Tugas</h1>
+
+      <p>Upload 6 file PDF</p>
+    </header>
+
+    <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <label>Nama</label>
+
+        <input type="text" name="nama" required />
+
+        <label>NIM</label>
+
+        <input type="text" name="nim" required />
+
+        <div class="tugas">
+          <label>Tugas 1 (PDF)</label>
+
+          <input type="file" name="tugas1" accept=".pdf" required />
+        </div>
+
+        <div class="tugas">
+          <label>Tugas 2 (PDF)</label>
+
+          <input type="file" name="tugas2" accept=".pdf" required />
+        </div>
+
+        <div class="tugas">
+          <label>Tugas 3 (PDF)</label>
+
+          <input type="file" name="tugas3" accept=".pdf" required />
+        </div>
+
+        <div class="tugas">
+          <label>Tugas 4 (PDF)</label>
+
+          <input type="file" name="tugas4" accept=".pdf" required />
+        </div>
+
+        <div class="tugas">
+          <label>Tugas 5 (PDF)</label>
+
+          <input type="file" name="tugas5" accept=".pdf" required />
+        </div>
+
+        <div class="tugas">
+          <label>Tugas 6 (PDF)</label>
+
+          <input type="file" name="tugas6" accept=".pdf" required />
+        </div>
+
+        <button type="submit">Kumpulkan Tugas</button>
+      </form>
+
+      {% if pesan %}
+
+      <p class="pesan">{{ pesan }}</p>
+
+      {% endif %}
+    </div>
+  </body>
+</html>
